@@ -12,22 +12,22 @@ import tn.esprit.spring.entities.Timesheet;
 
 public interface IEmployeService {
 	
-	//yasmine
-	public Employe mettreAjourEmailByEmployeId(String email, int employeId);
 	
-	public void desaffecterEmployeDuDepartement(int employeId, int depId);
-	public int ajouterContrat(Contrat contrat);
-	public boolean affecterContratAEmploye(int contratId, int employeId);
+	public void mettreAjourEmailByEmployeId(String email, int employeId);//yas+
+
+	public void desaffecterEmployeDuDepartement(int employeId, int depId);//yas
+	public int ajouterContrat(Contrat contrat);//yas+
+	public void affecterContratAEmploye(int contratId, int employeId);//yas+
 	
-	public boolean deleteContratById(int contratId);
-	public int getNombreEmployeJPQL();
+	public void deleteContratById(int contratId);//yas+
+	public int getNombreEmployeJPQL();//yas+
 	
-	public List<Employe> getAllEmployeByEntreprise(Entreprise entreprise);
+	public List<Employe> getAllEmployeByEntreprise(Entreprise entreprise);//yas+
 	
-	public boolean deleteAllContratJPQL();
+	public void deleteAllContratJPQL();//yas+
 	
-	public Double getSalaireMoyenByDepartementId(int departementId);
-//fin yasmine
+	public Double getSalaireMoyenByDepartementId(int departementId);//+yas
+	
 	
 	
 	
