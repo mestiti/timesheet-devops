@@ -38,6 +38,17 @@ public class EmployeServiceImplTest {
 		
 	}
 
+	@Test
+	public void testajouterContrat()
+	{
+		Contrat c=new Contrat(new Date(), "CDI",55);
+		try {
+			int id=iemployeservice.ajouterContrat(c);
+			System.out.println("id du nv employe  "+id);
+	    } catch (Exception e){
+	        assertNull(e);
+	    }
+		}
 
 
 	
