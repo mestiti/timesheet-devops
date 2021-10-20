@@ -17,7 +17,8 @@ import tn.esprit.spring.entities.Timesheet;
 import tn.esprit.spring.repository.ContratRepository;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EmployeRepository;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class EmployeServiceImpl implements IEmployeService {
@@ -29,7 +30,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Autowired
 	ContratRepository contratRepoistory;
 	
-
+	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeServiceImpl.class); 
 	
 	public Employe mettreAjourEmailByEmployeId(String email, int employeId) {
 		Employe employe = employeRepository.findById(employeId).orElseGet(Employe::new);
@@ -60,8 +61,16 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public int ajouterContrat(Contrat contrat) {
-		contratRepoistory.save(contrat);
-		return contrat.getReference();
+		
+
+        try {
+        	LOGGER.info("In ajouter");
+        	contratRepoistory.save(contrat);
+
+        	LOGGER.info("Out ajouter() : " + contrat);
+        	
+        	} catch (Exception e) {LOGGER.error("Erreur : contrat non ajouté");}
+        return contrat.getReference();
 	}
 
 	public boolean affecterContratAEmploye(int contratId, int employeId) {
