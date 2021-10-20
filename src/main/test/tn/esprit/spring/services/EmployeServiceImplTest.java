@@ -50,6 +50,16 @@ public class EmployeServiceImplTest {
 	    }
 		}
 
-
+	@Test
+	public void testaffecterContratAEmploye()
+	{
+		
+		  try {
+				boolean b=iemployeservice.affecterContratAEmploye(22, 1);
+				System.out.println("affectation est  "+b);
+		    } catch (Exception e){
+		        assertNull(e);
+		    }
+	}
 	
 }

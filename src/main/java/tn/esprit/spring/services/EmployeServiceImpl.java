@@ -64,12 +64,17 @@ public class EmployeServiceImpl implements IEmployeService {
 		return contrat.getReference();
 	}
 
-	public void affecterContratAEmploye(int contratId, int employeId) {
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
-
+	public boolean affecterContratAEmploye(int contratId, int employeId) {
+		Contrat contratManagedEntity = contratRepoistory.findById(contratId).orElseGet(Contrat::new);
+		Employe employeManagedEntity = employeRepository.findById(employeId).orElseGet(Employe::new);
+  boolean b=false;
 		contratManagedEntity.setEmploye(employeManagedEntity);
 		contratRepoistory.save(contratManagedEntity);
+		 if(contratRepoistory.findById(contratId).isPresent())
+		    {b=true;}
+         
+        	 return b;
+        		 
 		
 	}
 

@@ -17,7 +17,7 @@ public interface IEmployeService {
 
 	public void desaffecterEmployeDuDepartement(int employeId, int depId);//yas
 	public int ajouterContrat(Contrat contrat);//yas+
-	public void affecterContratAEmploye(int contratId, int employeId);//yas+
+	public boolean affecterContratAEmploye(int contratId, int employeId);//yas+
 	
 	public void deleteContratById(int contratId);//yas+
 	public int getNombreEmployeJPQL();//yas+
