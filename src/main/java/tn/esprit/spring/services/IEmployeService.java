@@ -13,7 +13,7 @@ import tn.esprit.spring.entities.Timesheet;
 public interface IEmployeService {
 	
 	
-	public void mettreAjourEmailByEmployeId(String email, int employeId);//yas+
+	public Employe mettreAjourEmailByEmployeId(String email, int employeId);//yas+
 
 	public void desaffecterEmployeDuDepartement(int employeId, int depId);//yas
 	public int ajouterContrat(Contrat contrat);//yas+

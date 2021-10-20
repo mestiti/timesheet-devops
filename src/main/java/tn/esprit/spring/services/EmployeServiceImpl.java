@@ -31,10 +31,16 @@ public class EmployeServiceImpl implements IEmployeService {
 	
 
 	
-	public void mettreAjourEmailByEmployeId(String email, int employeId) {
-		Employe employe = employeRepository.findById(employeId).get();
+	public Employe mettreAjourEmailByEmployeId(String email, int employeId) {
+		Employe employe = employeRepository.findById(employeId).orElseGet(Employe::new);
 		employe.setEmail(email);
 		employeRepository.save(employe);
+		if(employe.getEmail().equals(email))
+		{
+			return employe;
+		}
+		 
+		return employe;
 
 	}
 
