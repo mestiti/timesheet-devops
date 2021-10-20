@@ -79,9 +79,16 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 
-	public void deleteContratById(int contratId) {
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
+	public boolean deleteContratById(int contratId) {
+		Contrat contratManagedEntity = contratRepoistory.findById(contratId).orElseGet(Contrat::new);
+		boolean b=true;
 		contratRepoistory.delete(contratManagedEntity);
+		
+		 if(contratRepoistory.findById(contratId).isPresent())
+         {b=false;}
+         
+        	 return b;
+        		 
 
 	}
 

@@ -62,4 +62,18 @@ public class EmployeServiceImplTest {
 		    }
 	}
 	
+	@Test
+	public void testdeleteContratById()
+	{
+		
+		try {
+			boolean b=iemployeservice.deleteContratById(12);
+			
+			System.out.println("etat est  "+b);
+		    } catch (Exception e){
+		        assertNull(e);
+		    }
+		
+	}
+	
 }

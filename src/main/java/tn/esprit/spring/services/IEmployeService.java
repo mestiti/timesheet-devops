@@ -19,7 +19,7 @@ public interface IEmployeService {
 	public int ajouterContrat(Contrat contrat);//yas+
 	public boolean affecterContratAEmploye(int contratId, int employeId);//yas+
 	
-	public void deleteContratById(int contratId);//yas+
+	public boolean deleteContratById(int contratId);//yas+
 	public int getNombreEmployeJPQL();//yas+
 	
 	public List<Employe> getAllEmployeByEntreprise(Entreprise entreprise);//yas+
