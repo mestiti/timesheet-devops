@@ -88,4 +88,20 @@ public class EmployeServiceImplTest {
 		        assertNull(e);
 		    }
 		}
+	
+	@Test
+	public void testgetAllEmployeByEntreprise()
+	{
+		Entreprise em=new Entreprise("it","test");
+		
+		try {
+			ientrepriseService.ajouterEntreprise(em);
+			List<Employe> elist;
+			elist=iemployeservice.getAllEmployeByEntreprise(em);
+			System.out.println("la liste des employes  "+elist);
+		    } catch (Exception e){
+		        assertNull(e);
+		    }
+		
+	}
 }
