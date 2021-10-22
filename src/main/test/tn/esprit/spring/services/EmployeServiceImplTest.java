@@ -76,4 +76,16 @@ public class EmployeServiceImplTest {
 		
 	}
 	*/
+	@Test
+	public void testgetNombreEmployeJPQL()
+	{
+		
+		try {
+			int nb=iemployeservice.getNombreEmployeJPQL();
+			
+			System.out.println("le nb d'emplyes  "+nb);
+		    } catch (Exception e){
+		        assertNull(e);
+		    }
+		}
 }
