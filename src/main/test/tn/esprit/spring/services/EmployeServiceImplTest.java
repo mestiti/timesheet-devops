@@ -123,7 +123,7 @@ public void testdeleteAllContratJPQL()
 public void testgetSalaireMoyenByDepartementId()
 {
 	try {
-		double d=iemployeservice.getSalaireByEmployeIdJPQL(1);
+		double d=iemployeservice.getSalaireMoyenByDepartementId(1);
 		System.out.println("le salaire moyen des employens du departement 1"+d);
 	    } catch (Exception e){
 	        assertNull(e);
