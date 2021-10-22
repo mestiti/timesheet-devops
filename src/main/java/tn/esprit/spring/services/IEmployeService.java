@@ -24,7 +24,7 @@ public interface IEmployeService {
 	
 	public List<Employe> getAllEmployeByEntreprise(Entreprise entreprise);//yas+
 	
-	public void deleteAllContratJPQL();//yas+
+	public boolean deleteAllContratJPQL();//yas+
 	
 	public Double getSalaireMoyenByDepartementId(int departementId);//+yas
 	

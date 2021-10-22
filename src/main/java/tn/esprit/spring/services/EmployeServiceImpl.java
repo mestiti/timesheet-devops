@@ -112,8 +112,13 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	
-	public void deleteAllContratJPQL() {
-         employeRepository.deleteAllContratJPQL();
+	public boolean deleteAllContratJPQL() {
+		employeRepository.deleteAllContratJPQL();
+		boolean b=false;
+         if(contratRepoistory.count()==0)
+         {b=true;}
+         return b;
+        		 
 	}
 	
 
