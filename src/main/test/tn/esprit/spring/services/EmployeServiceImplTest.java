@@ -104,4 +104,18 @@ public class EmployeServiceImplTest {
 		    }
 		
 	}
+	
+	
+@Test
+public void testdeleteAllContratJPQL()
+{
+	try {
+		boolean b=iemployeservice.deleteAllContratJPQL();
+		System.out.println("etat est  "+b);
+	    } catch (Exception e){
+	        assertNull(e);
+	    }
+
+
+}
 }
