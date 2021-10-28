@@ -69,7 +69,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
         	LOGGER.info(null, contrat.getClass(), "message {}");
         	
-        	} catch (Exception e) {LOGGER.error("Erreur : contrat non ajouté");}
+        	} catch (Exception e) {LOGGER.error("Erreur : contrat non suppprime");}
         return contrat.getReference();
 	}
 
@@ -77,8 +77,16 @@ public class EmployeServiceImpl implements IEmployeService {
 		Contrat contratManagedEntity = contratRepoistory.findById(contratId).orElseGet(Contrat::new);
 		Employe employeManagedEntity = employeRepository.findById(employeId).orElseGet(Employe::new);
   boolean b=false;
-		contratManagedEntity.setEmploye(employeManagedEntity);
-		contratRepoistory.save(contratManagedEntity);
+
+  try {
+  	LOGGER.info("************In affecter contract a employe**********");
+  	contratManagedEntity.setEmploye(employeManagedEntity);
+	contratRepoistory.save(contratManagedEntity);
+
+  	LOGGER.info(contratManagedEntity.getEmploye().getNom(), "message {}");
+  	
+  	} catch (Exception e) {LOGGER.error("Erreur : employe non affecté");}
+		
 		 if(contratRepoistory.findById(contratId).isPresent())
 		    {b=true;}
          

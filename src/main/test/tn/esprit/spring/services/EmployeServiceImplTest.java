@@ -50,18 +50,18 @@ public class EmployeServiceImplTest {
 	    }
 		}
 
-	/*@Test
+	*/@Test
 	public void testaffecterContratAEmploye()
 	{
 		
 		  try {
-				boolean b=iemployeservice.affecterContratAEmploye(22, 1);
+				boolean b=iemployeservice.affecterContratAEmploye(22, 4);
 				System.out.println("affectation est  "+b);
 		    } catch (Exception e){
 		        assertNull(e);
 		    }
 	}
-	*/
+	/*
 	@Test
 	public void testdeleteContratById()
 	{
@@ -75,7 +75,7 @@ public class EmployeServiceImplTest {
 		    }
 		
 	}
-	/*
+	
 	@Test
 	public void testgetNombreEmployeJPQL()
 	{
