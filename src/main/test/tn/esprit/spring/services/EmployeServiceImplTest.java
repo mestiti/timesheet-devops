@@ -36,7 +36,7 @@ public class EmployeServiceImplTest {
 		        assertNull(e);
 		    }
 		
-	}*/
+	}
 
 	@Test
 	public void testajouterContrat()
@@ -61,13 +61,13 @@ public class EmployeServiceImplTest {
 		        assertNull(e);
 		    }
 	}
-	
+	*/
 	@Test
 	public void testdeleteContratById()
 	{
 		
 		try {
-			boolean b=iemployeservice.deleteContratById(12);
+			boolean b=iemployeservice.deleteContratById(13);
 			
 			System.out.println("etat est  "+b);
 		    } catch (Exception e){
@@ -75,7 +75,7 @@ public class EmployeServiceImplTest {
 		    }
 		
 	}
-	*/
+	/*
 	@Test
 	public void testgetNombreEmployeJPQL()
 	{
@@ -129,5 +129,5 @@ public void testgetSalaireMoyenByDepartementId()
 	        assertNull(e);
 	    }
 	
-}
+}*/
 }

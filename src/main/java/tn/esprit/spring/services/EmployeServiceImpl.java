@@ -64,7 +64,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		
 
         try {
-        	LOGGER.info("In ajouter");
+        	LOGGER.info("************In ajouter contract**********");
         	contratRepoistory.save(contrat);
 
         	LOGGER.info(null, contrat.getClass(), "message {}");
@@ -91,8 +91,15 @@ public class EmployeServiceImpl implements IEmployeService {
 	public boolean deleteContratById(int contratId) {
 		Contrat contratManagedEntity = contratRepoistory.findById(contratId).orElseGet(Contrat::new);
 		boolean b=true;
-		contratRepoistory.delete(contratManagedEntity);
+	     try {
+	        	LOGGER.info("**************In supprimer contrat**********");
+	        	contratRepoistory.delete(contratManagedEntity);
+
+	        	LOGGER.info(null, contratManagedEntity.getReference(), "message {}");
+	        	
+	        	} catch (Exception e) {LOGGER.error("Erreur : contrat non ajouté");}
 		
+	
 		 if(contratRepoistory.findById(contratId).isPresent())
          {b=false;}
          
