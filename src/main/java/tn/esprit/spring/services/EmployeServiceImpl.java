@@ -105,7 +105,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	        	LOGGER.info(null, contratManagedEntity.getReference(), "message {}");
 	        	
-	        	} catch (Exception e) {LOGGER.error("Erreur : contrat non ajouté");}
+	        	} catch (Exception e) {LOGGER.error("Erreur : contrat supprimé");}
 		
 	
 		 if(contratRepoistory.findById(contratId).isPresent())
@@ -117,7 +117,17 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public int getNombreEmployeJPQL() {
+		
+		try {
+        	LOGGER.info("**************In nombre total d'employes**********");
+        	int total=employeRepository.countemp();
+
+        	LOGGER.info(null, total, "message {}");
+        	
+        	} catch (Exception e) {LOGGER.error("Erreur : employes non existants");}
+		
 		return employeRepository.countemp();
+	
 	}
 	
 	

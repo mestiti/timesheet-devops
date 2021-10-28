@@ -50,7 +50,7 @@ public class EmployeServiceImplTest {
 	    }
 		}
 
-	*/@Test
+	@Test
 	public void testaffecterContratAEmploye()
 	{
 		
@@ -61,7 +61,7 @@ public class EmployeServiceImplTest {
 		        assertNull(e);
 		    }
 	}
-	/*
+	
 	@Test
 	public void testdeleteContratById()
 	{
@@ -75,7 +75,7 @@ public class EmployeServiceImplTest {
 		    }
 		
 	}
-	
+	*/
 	@Test
 	public void testgetNombreEmployeJPQL()
 	{
@@ -88,7 +88,7 @@ public class EmployeServiceImplTest {
 		        assertNull(e);
 		    }
 		}
-	
+	/*
 	@Test
 	public void testgetAllEmployeByEntreprise()
 	{
