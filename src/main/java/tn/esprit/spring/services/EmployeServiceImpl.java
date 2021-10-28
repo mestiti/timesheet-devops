@@ -67,7 +67,7 @@ public class EmployeServiceImpl implements IEmployeService {
         	LOGGER.info("************In ajouter contract**********");
         	contratRepoistory.save(contrat);
 
-        	LOGGER.info(null, contrat.getClass(), "message {}");
+        	LOGGER.info(null, contrat.getClass(), "messageajoutcontract {}");
         	
         	} catch (Exception e) {LOGGER.error("Erreur : contrat non suppprime");}
         return contrat.getReference();
@@ -83,7 +83,7 @@ public class EmployeServiceImpl implements IEmployeService {
   	contratManagedEntity.setEmploye(employeManagedEntity);
 	contratRepoistory.save(contratManagedEntity);
 
-  	LOGGER.info(contratManagedEntity.getEmploye().getNom(), "message {}");
+  	LOGGER.info(contratManagedEntity.getEmploye().getNom(), "messageaffectercontract {}");
   	
   	} catch (Exception e) {LOGGER.error("Erreur : employe non affecté");}
 		
@@ -103,7 +103,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	        	LOGGER.info("**************In supprimer contrat**********");
 	        	contratRepoistory.delete(contratManagedEntity);
 
-	        	LOGGER.info(null, contratManagedEntity.getReference(), "message {}");
+	        	LOGGER.info(null, contratManagedEntity.getReference(), "messagesupprimer contract {}");
 	        	
 	        	} catch (Exception e) {LOGGER.error("Erreur : contrat supprimé");}
 		
@@ -122,7 +122,7 @@ public class EmployeServiceImpl implements IEmployeService {
         	LOGGER.info("**************In nombre total d'employes**********");
         	int total=employeRepository.countemp();
 
-        	LOGGER.info(null, total, "message {}");
+        	LOGGER.info(null, total, "messageprendreemploye {}");
         	
         	} catch (Exception e) {LOGGER.error("Erreur : employes non existants");}
 		
@@ -148,6 +148,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	
 
 	public Double getSalaireMoyenByDepartementId(int departementId) {
+		
 		return employeRepository.getSalaireMoyenByDepartementId(departementId);
 	}
 	
