@@ -67,7 +67,7 @@ public class EmployeServiceImpl implements IEmployeService {
         	LOGGER.info("In ajouter");
         	contratRepoistory.save(contrat);
 
-        	LOGGER.info("Out ajouter() : " + contrat);
+        	LOGGER.info(null, contrat.getClass(), "message {}");
         	
         	} catch (Exception e) {LOGGER.error("Erreur : contrat non ajouté");}
         return contrat.getReference();
