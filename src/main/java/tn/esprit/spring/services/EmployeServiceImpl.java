@@ -149,16 +149,16 @@ public class EmployeServiceImpl implements IEmployeService {
 	public boolean deleteAllContratJPQL() {
 		boolean b=true;
 		try {
-        	LOGGER.trace("**************In suppresion des employes**********");
-        	LOGGER.debug(null, contratRepoistory.count(), "message nb total contract {}");
+        	LOGGER.info("**************In nombre total d'employes**********");
+        	LOGGER.info(null, 0, "messageprendreemploye {}");
         	employeRepository.deleteAllContratJPQL();
-            b=false;
+    		 b=false;
+
         	
-        	} catch (Exception e) {LOGGER.error("Erreur : contract non supprimé");}
+        	} catch (Exception e) {LOGGER.error("Erreur : employes non existants");}
 		
-		LOGGER.trace("**************In fin suppresion des employes**********");
-    	LOGGER.debug(null, contratRepoistory.count(), "message le nb de contract restant {}");
-    
+	
+		
          if(contratRepoistory.count()==0)
          {b=true;}
          return b;
