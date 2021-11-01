@@ -37,7 +37,7 @@ public class EmployeServiceImplTest {
 		    }
 		
 	}
-
+*/
 	@Test
 	public void testajouterContrat()
 	{
@@ -49,7 +49,7 @@ public class EmployeServiceImplTest {
 	        assertNull(e);
 	    }
 		}
-
+/*
 	@Test
 	public void testaffecterContratAEmploye()
 	{
@@ -75,7 +75,7 @@ public class EmployeServiceImplTest {
 		    }
 		
 	}
-	*/
+	
 	@Test
 	public void testgetNombreEmployeJPQL()
 	{
@@ -131,7 +131,7 @@ public void testgetSalaireMoyenByDepartementId()
 	
 }*/
 	
-	@Test
+	/*@Test
 	public void testdesaffecterEmployeDuDepartement()
 	{
 		try {
@@ -140,5 +140,5 @@ public void testgetSalaireMoyenByDepartementId()
 		        assertNull(e);
 		    }
 		
-	}
+	}*/
 }
