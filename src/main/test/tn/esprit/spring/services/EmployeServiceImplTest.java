@@ -37,7 +37,7 @@ public class EmployeServiceImplTest {
 		    }
 		
 	}
-*/
+
 	@Test
 	public void testajouterContrat()
 	{
@@ -105,7 +105,7 @@ public class EmployeServiceImplTest {
 		
 	}
 	
-	
+	*/
 @Test
 public void testdeleteAllContratJPQL()
 {
@@ -118,7 +118,7 @@ public void testdeleteAllContratJPQL()
 
 
 }
-
+/*
 @Test
 public void testgetSalaireMoyenByDepartementId()
 {

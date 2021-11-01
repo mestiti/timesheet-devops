@@ -61,12 +61,16 @@ public class EmployeServiceImpl implements IEmployeService {
 		
 
         try {
-        	LOGGER.info("************In ajouter contract**********");
+        	LOGGER.trace("************In ajouter contract**********");
+        	LOGGER.debug(null, contrat.getClass(), "messageajoutcontract {}");
         	contratRepoistory.save(contrat);
 
-        	LOGGER.info(null, contrat.getClass(), "messageajoutcontract {}");
         	
-        	} catch (Exception e) {LOGGER.error("Erreur : contrat non suppprime");}
+        	
+        	} catch (Exception e) {LOGGER.error("Erreur : contrat non ajouté");}
+        
+        LOGGER.trace("************In fin contract**********");
+    	LOGGER.debug(null, contrat.getReference(), "messageajoutcontract {}");
         return contrat.getReference();
 	}
 
@@ -76,17 +80,22 @@ public class EmployeServiceImpl implements IEmployeService {
   boolean b=false;
 
   try {
-  	LOGGER.info("************In affecter contract a employe**********");
+  	LOGGER.trace("************In affecter contract a employe**********");
+  	LOGGER.debug(employeManagedEntity.getNom(), "messageaffectercontract {}");
+  	
   	contratManagedEntity.setEmploye(employeManagedEntity);
 	contratRepoistory.save(contratManagedEntity);
 
-  	LOGGER.info(contratManagedEntity.getEmploye().getNom(), "messageaffectercontract {}");
+  	
   	
   	} catch (Exception e) {LOGGER.error("Erreur : employe non affecté");}
 		
 		 if(contratRepoistory.findById(contratId).isPresent())
 		    {b=true;}
          
+		 	LOGGER.trace("************In fin affecter contract a employe**********");
+		  	LOGGER.debug(contratManagedEntity.getEmploye().getNom(), "messageaffectercontract {}");
+		  	
         	 return b;
         		 
 		
@@ -97,32 +106,35 @@ public class EmployeServiceImpl implements IEmployeService {
 		Contrat contratManagedEntity = contratRepoistory.findById(contratId).orElseGet(Contrat::new);
 		boolean b=true;
 	     try {
-	        	LOGGER.info("**************In supprimer contrat**********");
+	        	LOGGER.trace("**************In supprimer contrat**********");
+	        	LOGGER.debug(null, contratManagedEntity.getReference(), "contract a supprimer{}");
 	        	contratRepoistory.delete(contratManagedEntity);
 
-	        	LOGGER.info(null, contratManagedEntity.getReference(), "messagesupprimer contract {}");
 	        	
 	        	} catch (Exception e) {LOGGER.error("Erreur : contrat supprimé");}
 		
 	
 		 if(contratRepoistory.findById(contratId).isPresent())
          {b=false;}
-         
+		 LOGGER.trace("**************In fin supprimer contrat**********");
+     	LOGGER.debug(null, contratManagedEntity.getReference(), "contract  supprimé{}");
         	 return b;
         		 
 
 	}
 
 	public int getNombreEmployeJPQL() {
-		
+		int total=0;
 		try {
-        	LOGGER.info("**************In nombre total d'employes**********");
-        	int total=employeRepository.countemp();
+        	LOGGER.trace("**************In nombre total d'employes**********");
+        	LOGGER.debug(null, 0, "messageprendreemploye {}");
+        	total=employeRepository.countemp();
 
-        	LOGGER.info(null, total, "messageprendreemploye {}");
         	
         	} catch (Exception e) {LOGGER.error("Erreur : employes non existants");}
 		
+		LOGGER.trace("**************In nombre total d'employes**********");
+    	LOGGER.debug(null, total, "messageprendreemploye {}");
 		return employeRepository.countemp();
 	
 	}
@@ -135,8 +147,18 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	
 	public boolean deleteAllContratJPQL() {
-		employeRepository.deleteAllContratJPQL();
-		boolean b=false;
+		boolean b=true;
+		try {
+        	LOGGER.trace("**************In suppresion des employes**********");
+        	LOGGER.debug(null, contratRepoistory.count(), "message nb total contract {}");
+        	employeRepository.deleteAllContratJPQL();
+            b=false;
+        	
+        	} catch (Exception e) {LOGGER.error("Erreur : contract non supprimé");}
+		
+		LOGGER.trace("**************In fin suppresion des employes**********");
+    	LOGGER.debug(null, contratRepoistory.count(), "message le nb de contract restant {}");
+    
          if(contratRepoistory.count()==0)
          {b=true;}
          return b;
