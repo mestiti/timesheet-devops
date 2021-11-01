@@ -55,18 +55,19 @@ public class EmployeServiceImpl implements IEmployeService {
 
 
 	@Transactional
-	public void desaffecterEmployeDuDepartement(int employeId, int depId)
-	{
+	public boolean desaffecterEmployeDuDepartement(int employeId, int depId)
+	{boolean b=false;
 		Departement dep = deptRepoistory.findById(depId).orElseGet(Departement::new);
 
 		int employeNb = dep.getEmployes().size();
 		for(int index = 0; index < employeNb; index++){
 			if(dep.getEmployes().get(index).getId() == employeId){
 				dep.getEmployes().remove(index);
+				b=true;
 				break;
 			}
 		}
-	}
+	return b;}
 
 	public int ajouterContrat(Contrat contrat) {
 		

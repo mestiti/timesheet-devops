@@ -141,8 +141,8 @@ public void testgetSalaireMoyenByDepartementId()
 	public void testdesaffecterEmployeDuDepartement()
 	{
 		try {
-			iemployeservice.desaffecterEmployeDuDepartement(1,1);
-			assertEquals(elist, 7);
+			boolean b=iemployeservice.desaffecterEmployeDuDepartement(1,1);
+			assertEquals(b, true);
 		    } catch (Exception e){
 		        assertNull(e);
 		    }
