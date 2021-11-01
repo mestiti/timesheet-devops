@@ -25,11 +25,11 @@ public class EmployeServiceImplTest {
 	@Autowired
 	IEntrepriseService ientrepriseService;
 	
-	/*@Test
+	@Test
 	public void testmettreAjourEmailByEmployeId()
 	{
 		  try {
-			  Employe e=iemployeservice.mettreAjourEmailByEmployeId("mestiri@esprit.tn", 1);
+			  Employe e=iemployeservice.mettreAjourEmailByEmployeId("mei@es.tn", 1);
 				
 				System.out.println("la nv adresse mail employe modifié "+e.getEmail());
 		    } catch (Exception e){
@@ -37,7 +37,7 @@ public class EmployeServiceImplTest {
 		    }
 		
 	}
-
+/*
 	@Test
 	public void testajouterContrat()
 	{
@@ -105,7 +105,7 @@ public class EmployeServiceImplTest {
 		
 	}
 	
-	*/
+	
 @Test
 public void testdeleteAllContratJPQL()
 {
