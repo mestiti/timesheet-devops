@@ -42,7 +42,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	        	} catch (Exception e) {LOGGER.error("Erreur : contrat non ajouté");}
 	        
 		 LOGGER.info("************In fin contract**********");
-	    	LOGGER.info("email modifié", employe.getEmail(), "email modifie");
+	    	LOGGER.info("email modifié {}", employe.getEmail());
 		
 		if(employe.getEmail().equals(email))
 		{
@@ -73,7 +73,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
         try {
         	LOGGER.trace("************In ajouter contract**********");
-        	LOGGER.debug("messageajoutcontract {}", contrat.getClass(), "messageajoutcontract {}");
+        	LOGGER.debug("messageajoutcontract {}", contrat.getClass());
         	contratRepoistory.save(contrat);
 
         	
@@ -81,7 +81,7 @@ public class EmployeServiceImpl implements IEmployeService {
         	} catch (Exception e) {LOGGER.error("Erreur : contrat non ajouté");}
         
         LOGGER.trace("************In fin contract**********");
-    	LOGGER.debug("messageajoutcontract {}", contrat.getReference(), "messageajoutcontract {}");
+    	LOGGER.debug("messageajoutcontract {}", contrat.getReference());
         return contrat.getReference();
 	}
 
@@ -92,7 +92,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
   try {
   	LOGGER.trace("************In affecter contract a employe**********");
-  	LOGGER.debug("messageaffectercontract {}",employeManagedEntity.getNom(), "messageaffectercontract {}");
+  	LOGGER.debug("messageaffectercontract {}",employeManagedEntity.getNom());
   	
   	contratManagedEntity.setEmploye(employeManagedEntity);
 	contratRepoistory.save(contratManagedEntity);
@@ -105,7 +105,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		    {b=true;}
          
 		 	LOGGER.trace("************In fin affecter contract a employe**********");
-		  	LOGGER.debug("messageaffectercontract {}",contratManagedEntity.getEmploye().getNom(), "messageaffectercontract {}");
+		  	LOGGER.debug("messageaffectercontract {}",contratManagedEntity.getEmploye().getNom());
 		  	
         	 return b;
         		 
@@ -118,7 +118,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		boolean b=true;
 	     try {
 	        	LOGGER.trace("**************In supprimer contrat**********");
-	        	LOGGER.debug("contract a supprimer{}", contratManagedEntity.getReference(), "contract a supprimer{}");
+	        	LOGGER.debug("contract a supprimer{}", contratManagedEntity.getReference());
 	        	contratRepoistory.delete(contratManagedEntity);
 
 	        	
@@ -128,7 +128,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		 if(contratRepoistory.findById(contratId).isPresent())
          {b=false;}
 		 LOGGER.trace("**************In fin supprimer contrat**********");
-     	LOGGER.debug("contract a supprimer{}", contratManagedEntity.getReference(), "contract  supprimé{}");
+     	LOGGER.debug("contract a supprimer{}", contratManagedEntity.getReference());
         	 return b;
         		 
 
@@ -138,14 +138,14 @@ public class EmployeServiceImpl implements IEmployeService {
 		int total=0;
 		try {
         	LOGGER.trace("**************In nombre total d'employes**********");
-        	LOGGER.debug("nob intial est ", 0, "messageprendreemploye {}");
+        	LOGGER.debug("nob intial est {}", 0);
         	total=employeRepository.countemp();
 
         	
         	} catch (Exception e) {LOGGER.error("Erreur : employes non existants");}
 		
 		LOGGER.trace("**************In nombre total d'employes**********");
-    	LOGGER.debug("messageprendreemploye {}", total, "messageprendreemploye {}");
+    	LOGGER.debug("messageprendreemploye {}", total);
 		return employeRepository.countemp();
 	
 	}
@@ -161,7 +161,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		boolean b=true;
 		try {
         	LOGGER.info("**************In nombre delete all contract**********");
-        	LOGGER.info("message le nb de contract {}", contratRepoistory.count(), "message le nb de contract {}");
+        	LOGGER.info("message le nb de contract {}", contratRepoistory.count());
         	employeRepository.deleteAllContratJPQL();
     		 b=false;
 
@@ -169,7 +169,7 @@ public class EmployeServiceImpl implements IEmployeService {
         	} catch (Exception e) {LOGGER.error("Erreur : contracts non existants");}
 		
 		LOGGER.info("**************In fin nombre delete all contract**********");
-    	LOGGER.info("message le nb de contract {}", contratRepoistory.count(), "message le nb de contract {}");
+    	LOGGER.info("message le nb de contract {}", contratRepoistory.count());
 		
          if(contratRepoistory.count()==0)
          {b=true;}

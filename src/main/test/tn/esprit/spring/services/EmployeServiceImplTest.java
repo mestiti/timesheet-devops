@@ -29,27 +29,27 @@ public class EmployeServiceImplTest {
 	public void testmettreAjourEmailByEmployeId()
 	{
 		  try {
-			  Employe e=iemployeservice.mettreAjourEmailByEmployeId("mei@es.tn", 1);
-				
-				System.out.println("la nv adresse mail employe modifié "+e.getEmail());
+			  Employe e=iemployeservice.mettreAjourEmailByEmployeId("tttttttttt@es.tn", 1);
+			  assertEquals(e.getEmail(), "tttttttttt@es.tn");
 		    } catch (Exception e){
 		        assertNull(e);
 		    }
 		
 	}
-/*
+
 	@Test
 	public void testajouterContrat()
 	{
 		Contrat c=new Contrat(new Date(), "CDI",55);
 		try {
 			int id=iemployeservice.ajouterContrat(c);
-			System.out.println("id du nv employe  "+id);
+			//System.out.println("id du nv employe  "+id);
+			assertEquals(c.getTypeContrat(), "CDI");
 	    } catch (Exception e){
 	        assertNull(e);
 	    }
 		}
-/*
+
 	@Test
 	public void testaffecterContratAEmploye()
 	{
@@ -57,6 +57,7 @@ public class EmployeServiceImplTest {
 		  try {
 				boolean b=iemployeservice.affecterContratAEmploye(22, 4);
 				System.out.println("affectation est  "+b);
+				assertEquals(b, true);
 		    } catch (Exception e){
 		        assertNull(e);
 		    }
@@ -70,6 +71,7 @@ public class EmployeServiceImplTest {
 			boolean b=iemployeservice.deleteContratById(13);
 			
 			System.out.println("etat est  "+b);
+			assertEquals(b, false);
 		    } catch (Exception e){
 		        assertNull(e);
 		    }
@@ -84,11 +86,12 @@ public class EmployeServiceImplTest {
 			int nb=iemployeservice.getNombreEmployeJPQL();
 			
 			System.out.println("le nb d'emplyes  "+nb);
+			assertEquals(nb, 5);
 		    } catch (Exception e){
 		        assertNull(e);
 		    }
 		}
-	/*
+	
 	@Test
 	public void testgetAllEmployeByEntreprise()
 	{
@@ -99,6 +102,7 @@ public class EmployeServiceImplTest {
 			List<Employe> elist;
 			elist=iemployeservice.getAllEmployeByEntreprise(em);
 			System.out.println("la liste des employes  "+elist);
+			assertEquals(elist, 7);
 		    } catch (Exception e){
 		        assertNull(e);
 		    }
@@ -112,6 +116,7 @@ public void testdeleteAllContratJPQL()
 	try {
 		boolean b=iemployeservice.deleteAllContratJPQL();
 		System.out.println("etat est  "+b);
+		assertEquals(b, true);
 	    } catch (Exception e){
 	        assertNull(e);
 	    }
@@ -125,6 +130,7 @@ public void testgetSalaireMoyenByDepartementId()
 	try {
 		double d=iemployeservice.getSalaireMoyenByDepartementId(1);
 		System.out.println("le salaire moyen des employens du departement 1"+d);
+		assertEquals(d, 7);
 	    } catch (Exception e){
 	        assertNull(e);
 	    }
@@ -136,6 +142,7 @@ public void testgetSalaireMoyenByDepartementId()
 	{
 		try {
 			iemployeservice.desaffecterEmployeDuDepartement(1,1);
+			assertEquals(elist, 7);
 		    } catch (Exception e){
 		        assertNull(e);
 		    }
