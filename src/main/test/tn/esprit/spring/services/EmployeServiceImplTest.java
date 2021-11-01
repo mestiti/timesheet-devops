@@ -130,4 +130,15 @@ public void testgetSalaireMoyenByDepartementId()
 	    }
 	
 }*/
+	
+	@Test
+	public void testdesaffecterEmployeDuDepartement()
+	{
+		try {
+			iemployeservice.desaffecterEmployeDuDepartement(1,1);
+		    } catch (Exception e){
+		        assertNull(e);
+		    }
+		
+	}
 }
