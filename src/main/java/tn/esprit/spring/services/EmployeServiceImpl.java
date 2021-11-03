@@ -29,6 +29,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeServiceImpl.class); 
 	
+	///debut yasmine
 	public Employe mettreAjourEmailByEmployeId(String email, int employeId) {
 		Employe employe = employeRepository.findById(employeId).orElseGet(Employe::new);
 		 try {
@@ -184,6 +185,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		return employeRepository.getSalaireMoyenByDepartementId(departementId);
 	}
 	
+	///fin yasmine
 	
 
 
