@@ -1,2 +1,2 @@
 # timesheet-devops
-continuous integration of the project timesheet (jenkins,nexus)
+continuous integration of the project timesheet (,nexus)
