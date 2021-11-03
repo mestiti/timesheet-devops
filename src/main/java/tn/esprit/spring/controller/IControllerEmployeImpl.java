@@ -1,6 +1,7 @@
 package tn.esprit.spring.controller;
 
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,8 @@ import org.springframework.stereotype.Controller;
 import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Entreprise;
-
+import tn.esprit.spring.entities.Mission;
+import tn.esprit.spring.entities.Timesheet;
 import tn.esprit.spring.services.IEmployeService;
 import tn.esprit.spring.services.IEntrepriseService;
 
@@ -91,20 +93,54 @@ public class IControllerEmployeImpl  {
 	
 
 
-
-
+///// onss
 	
-
-	
-	
-
-	
-	
-
-	
-	
+	public int ajouterEmploye(Employe employe)
+	{
+		iemployeservice.ajouterEmploye(employe);
+		return employe.getId();
+	}
     
+
+	public void affecterEmployeADepartement(int employeId, int depId) {
+		iemployeservice.affecterEmployeADepartement(employeId, depId);
+		
+	}	
+
+	
+	public String getEmployePrenomById(int employeId) {
+		return iemployeservice.getEmployePrenomById(employeId);
+	}
+
+	
+	public void deleteEmployeById(int employeId) {
+		iemployeservice.deleteEmployeById(employeId);
+		}
+
+	
+	public List<String> getAllEmployeNamesJPQL() {
+		return iemployeservice.getAllEmployeNamesJPQL();
+	}
+
+
+	public void mettreAjourEmailByEmployeIdJPQL(String email, int employeId) {	
+	iemployeservice.mettreAjourEmailByEmployeIdJPQL(email, employeId);
+		}
+
+
+	public float getSalaireByEmployeIdJPQL(int employeId) {
+		return iemployeservice.getSalaireByEmployeIdJPQL(employeId);
+	}
 	
 	
-	
+	public List<Timesheet> getTimesheetsByMissionAndDate(Employe employe, Mission mission, Date dateDebut,
+			Date dateFin) {
+		return iemployeservice.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
+	}
+
+
+	public List<Employe> getAllEmployes() {
+		
+		return iemployeservice.getAllEmployes();
+	}	
 }

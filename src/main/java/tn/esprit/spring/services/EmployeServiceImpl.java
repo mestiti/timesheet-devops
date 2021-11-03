@@ -1,6 +1,8 @@
 package tn.esprit.spring.services;
 
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +13,13 @@ import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Entreprise;
+import tn.esprit.spring.entities.Mission;
+import tn.esprit.spring.entities.Timesheet;
 import tn.esprit.spring.repository.ContratRepository;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EmployeRepository;
+import tn.esprit.spring.repository.TimesheetRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +32,8 @@ public class EmployeServiceImpl implements IEmployeService {
 	DepartementRepository deptRepoistory;
 	@Autowired
 	ContratRepository contratRepoistory;
+	@Autowired
+	TimesheetRepository timesheetRepository;
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeServiceImpl.class); 
 	
@@ -184,9 +192,86 @@ public class EmployeServiceImpl implements IEmployeService {
 		
 		return employeRepository.getSalaireMoyenByDepartementId(departementId);
 	}
-	
 	///fin yasmine
 	
+	
+	///debut ons
+
+	public int ajouterEmploye(Employe employe) {
+		
+		employeRepository.save(employe);
+		
+		return employe.getId();
+	}
+
+	@Transactional	
+	public void affecterEmployeADepartement(int employeId, int depId) {
+		Departement depManagedEntity = deptRepoistory.findById(depId).get();
+		Employe employeManagedEntity = employeRepository.findById(employeId).get();
+
+		if(depManagedEntity.getEmployes() == null){
+
+			List<Employe> employes = new ArrayList<>();
+			employes.add(employeManagedEntity);
+			depManagedEntity.setEmployes(employes);
+		}else{
+
+			depManagedEntity.getEmployes().add(employeManagedEntity);
+
+		}
+
+	}
+
+
+	public String getEmployePrenomById(int employeId) {
+		Employe employeManagedEntity = employeRepository.findById(employeId).get();
+		return employeManagedEntity.getPrenom();
+	}
+
+
+	public void deleteEmployeById(int employeId)
+	{
+		Employe employe = employeRepository.findById(employeId).get();
+
+		//Desaffecter l'employe de tous les departements
+		//c'est le bout master qui permet de mettre a jour
+		//la table d'association
+		for(Departement dep : employe.getDepartements()){
+			dep.getEmployes().remove(employe);
+		}
+
+		employeRepository.delete(employe);
+	}
+
+
+	
+	public List<String> getAllEmployeNamesJPQL() {
+		return employeRepository.employeNames();
+	}
+
+
+	public void mettreAjourEmailByEmployeIdJPQL(String email, int employeId) {
+		employeRepository.mettreAjourEmailByEmployeIdJPQL(email, employeId);
+
+	}
+
+
+	public float getSalaireByEmployeIdJPQL(int employeId) {
+		return employeRepository.getSalaireByEmployeIdJPQL(employeId);
+	}
+
+
+	public List<Employe> getAllEmployes() {
+		return (List<Employe>) employeRepository.findAll();
+}
+
+	public List<Timesheet> getTimesheetsByMissionAndDate(Employe employe, Mission mission, Date dateDebut,
+			Date dateFin) {
+		return timesheetRepository.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
+	}
+	
+	
+	///fin ons
 
 
 }
