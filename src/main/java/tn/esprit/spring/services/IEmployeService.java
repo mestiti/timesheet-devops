@@ -30,11 +30,11 @@ public interface IEmployeService {
 	
 	///////debut ons
 	public int ajouterEmploye(Employe employe);//ons
-	public void affecterEmployeADepartement(int employeId, int depId);//ons
+	public boolean affecterEmployeADepartement(int employeId, int depId);//ons
 	public String getEmployePrenomById(int employeId);//ons
-	public void deleteEmployeById(int employeId);//ons
+	public boolean deleteEmployeById(int employeId);//ons
 	public List<String> getAllEmployeNamesJPQL();//ons
-	public void mettreAjourEmailByEmployeIdJPQL(String email, int employeId);//ons
+	public boolean mettreAjourEmailByEmployeIdJPQL(String email, int employeId);//ons
 	public float getSalaireByEmployeIdJPQL(int employeId);//ons
 	public List<Employe> getAllEmployes();//ons
 	public List<Timesheet> getTimesheetsByMissionAndDate(Employe employe, Mission mission, Date dateDebut, Date dateFin);//ons
