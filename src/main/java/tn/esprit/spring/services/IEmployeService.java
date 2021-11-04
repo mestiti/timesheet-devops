@@ -38,6 +38,8 @@ public interface IEmployeService {
 	public float getSalaireByEmployeIdJPQL(int employeId);//ons
 	public List<Employe> getAllEmployes();//ons
 	public List<Timesheet> getTimesheetsByMissionAndDate(Employe employe, Mission mission, Date dateDebut, Date dateFin);//ons
+	public Employe getEmployeById(String id);
+	
 	////// fin ons
 	
 

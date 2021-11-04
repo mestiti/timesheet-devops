@@ -309,6 +309,12 @@ public class EmployeServiceImpl implements IEmployeService {
 
 		return timesheetRepository.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
 	}
+	
+	public Employe getEmployeById(String id) {
+		
+		return  employeRepository.findById(Integer.parseInt(id)).orElse(null); 
+		
+	}
 
 	/// fin ons
 

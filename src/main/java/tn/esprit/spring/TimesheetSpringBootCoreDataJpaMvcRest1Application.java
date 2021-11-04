@@ -1,6 +1,5 @@
 package tn.esprit.spring;
 
-import java.nio.file.Paths;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
