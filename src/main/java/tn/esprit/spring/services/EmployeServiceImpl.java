@@ -4,6 +4,7 @@ package tn.esprit.spring.services;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -206,8 +207,11 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	@Transactional	
 	public void affecterEmployeADepartement(int employeId, int depId) {
-		Departement depManagedEntity = deptRepoistory.findById(depId).get();
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
+		Optional<Departement> depF = deptRepoistory.findById(depId);
+		Optional<Employe> empF = employeRepository.findById(employeId);
+		if(depF.isPresent() && empF.isPresent()) {
+		Departement depManagedEntity = depF.get();
+		Employe employeManagedEntity = empF.get();
 
 		if(depManagedEntity.getEmployes() == null){
 
@@ -220,28 +224,32 @@ public class EmployeServiceImpl implements IEmployeService {
 
 		}
 
-	}
+	}}
 
 
 	public String getEmployePrenomById(int employeId) {
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
-		return employeManagedEntity.getPrenom();
+		Optional<Employe> empF = employeRepository.findById(employeId);
+		if(empF.isPresent()) {
+			Employe employeManagedEntity = empF.get();
+			return employeManagedEntity.getPrenom();
+		}
+		
+		return "he has no family name";
 	}
 
 
 	public void deleteEmployeById(int employeId)
 	{
-		Employe employe = employeRepository.findById(employeId).get();
-
-		//Desaffecter l'employe de tous les departements
-		//c'est le bout master qui permet de mettre a jour
-		//la table d'association
+		Optional<Employe> empF = employeRepository.findById(employeId);
+		if(empF.isPresent()) {
+		Employe employe = empF.get();
+		
 		for(Departement dep : employe.getDepartements()){
 			dep.getEmployes().remove(employe);
 		}
 
 		employeRepository.delete(employe);
-	}
+	}}
 
 
 	
