@@ -1,4 +1,4 @@
 # timesheet-devops
 
-continuous integration of the project timesheet (je    nk
+continuous integration of the project timdesheet (je    nk
 kkk
