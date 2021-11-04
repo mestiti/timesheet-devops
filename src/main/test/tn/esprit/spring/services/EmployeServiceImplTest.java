@@ -3,17 +3,19 @@ package tn.esprit.spring.services;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import tn.esprit.spring.entities.*;
-import tn.esprit.spring.entities.Role;
 import tn.esprit.spring.services.*;
 
 @RunWith(SpringRunner.class)
@@ -123,29 +125,130 @@ public void testdeleteAllContratJPQL()
 
 
 }
-/*
-@Test
-public void testgetSalaireMoyenByDepartementId()
-{
-	try {
-		double d=iemployeservice.getSalaireMoyenByDepartementId(1);
-		System.out.println("le salaire moyen des employens du departement 1"+d);
-		assertEquals(d, 7);
-	    } catch (Exception e){
-	        assertNull(e);
-	    }
-	
-}*/
-	
-	/*@Test
-	public void testdesaffecterEmployeDuDepartement()
-	{
-		try {
-			boolean b=iemployeservice.desaffecterEmployeDuDepartement(1,1);
-			assertEquals(b, true);
-		    } catch (Exception e){
-		        assertNull(e);
-		    }
-		
-	}*/
+//yasmine
+
+//ons++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//@Test
+//public int testajouterEmploye(Employe employe) {
+//	
+//	employeRepository.save(employe);
+//	return employe.getId();
+//}
+//
+//@Test
+//public boolean testaffecterEmployeADepartement(int employeId, int depId) {
+//	
+//
+//	boolean affected = false;
+//	
+//	Optional<Departement> depF = deptRepoistory.findById(depId);
+//	Optional<Employe> empF = employeRepository.findById(employeId);
+//	if (depF.isPresent() && empF.isPresent()) {
+//		Departement depManagedEntity = depF.get();
+//
+//		Employe employeManagedEntity = empF.get();
+//
+//
+//		if (depManagedEntity.getEmployes() == null) {
+//
+//			List<Employe> employes = new ArrayList<>();
+//			employes.add(employeManagedEntity);
+//
+//			depManagedEntity.setEmployes(employes);
+//
+//		} else {
+//
+//			depManagedEntity.getEmployes().add(employeManagedEntity);
+//
+//		}
+//
+//		affected = true;
+//		
+//
+//	}
+//
+//	
+//
+//	return affected;
+//
+//}
+//
+//@Test
+//public String testgetEmployePrenomById(int employeId) {
+//	
+//
+//	Optional<Employe> empF = employeRepository.findById(employeId);
+//
+//	if (empF.isPresent()) {
+//		Employe employeManagedEntity = empF.get();
+//		return employeManagedEntity.getPrenom();
+//	}
+//
+//	return "there is no user prenom matches with your input";
+//}
+//
+//@Test
+//public boolean testdeleteEmployeById(int employeId) {
+//	boolean deleted = false;
+//
+//
+//	Optional<Employe> empF = employeRepository.findById(employeId);
+//	if (empF.isPresent()) {
+//		Employe employe = empF.get();
+//		
+//		for (Departement dep : employe.getDepartements()) {
+//			dep.getEmployes().remove(employe);
+//		}
+//
+//		employeRepository.delete(employe);
+//		
+//		deleted = true;
+//		
+//
+//	}
+//	
+//
+//	return deleted;
+//}
+//
+//@Test
+//public List<String> testgetAllEmployeNamesJPQL() {
+//	
+//	return employeRepository.employeNames();
+//}
+//
+//@Test
+//public boolean testmettreAjourEmailByEmployeIdJPQL(String email, int employeId) {
+//	
+//
+//	boolean updated = false;
+//
+//	employeRepository.mettreAjourEmailByEmployeIdJPQL(email, employeId);
+//	updated = true;
+//	return updated;
+//}
+//
+//@Test
+//public float testgetSalaireByEmployeIdJPQL(int employeId) {
+//	
+//
+//	return employeRepository.getSalaireByEmployeIdJPQL(employeId);
+//}
+//
+//@Test
+//public List<Employe> testgetAllEmployes() {
+//	
+//
+//	return (List<Employe>) employeRepository.findAll();
+//}
+//
+//@Test
+//public List<Timesheet> testgetTimesheetsByMissionAndDate(Employe employe, Mission mission, Date dateDebut,
+//		Date dateFin) {
+//	
+//
+//	return timesheetRepository.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
+//}
+
 }
