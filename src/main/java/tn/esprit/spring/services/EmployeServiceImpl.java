@@ -240,20 +240,29 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public void deleteEmployeById(int employeId)
 	{
+		LOGGER.info("**************In delete Employe By Id**********");
+		
 		Optional<Employe> empF = employeRepository.findById(employeId);
 		if(empF.isPresent()) {
 		Employe employe = empF.get();
+		LOGGER.info("message le nb de d employes {}", employeRepository.count());
 		
 		for(Departement dep : employe.getDepartements()){
 			dep.getEmployes().remove(employe);
 		}
 
 		employeRepository.delete(employe);
+		LOGGER.info("message le nb de d employes apres suppression{}", employeRepository.count());
+
 	}}
 
 
 	
 	public List<String> getAllEmployeNamesJPQL() {
+		LOGGER.info("**************In get All Employes Names JPQL**********");
+		LOGGER.info("This is an info message");
+	    LOGGER.warn("This is a warn message");
+	    LOGGER.error("This is an error message");
 		return employeRepository.employeNames();
 	}
 
