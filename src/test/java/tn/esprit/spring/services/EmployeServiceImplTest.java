@@ -128,8 +128,8 @@ public class EmployeServiceImplTest {
 	
 	@Test
 	public void testdeleteEmployeById() {
-		iemployeservice.deleteEmployeById(7);
-		Assert.assertNull(iemployeservice.getEmployeById("7"));
+		iemployeservice.deleteEmployeById(8);
+		Assert.assertNull(iemployeservice.getEmployeById("8"));
 	}
 
 	
@@ -148,13 +148,20 @@ public class EmployeServiceImplTest {
 	public void testgetAllEmployes() {
 
 		List<Employe> listEmployes = iemployeservice.getAllEmployes(); 
-		// if there are 7 users in DB : 
+		// if there are 2 users in DB : expected value 1 khater chnamlou delete mta wehed deja
 		Assert.assertEquals(1, listEmployes.size());
 		
 	}
 	
+	@Test
+	public void testmettreAjourEmailByEmployeIdJPQL() {
+		boolean employeUpdatedMail = iemployeservice.mettreAjourEmailByEmployeIdJPQL("employe2@gmail.com", 2) ;
+		Assert.assertEquals(true, employeUpdatedMail);
+	}
+	
 	//+++++++++++++++++++++++++++++++++++RestdeTest 
-//	@Test
+	
+	//@Test
 //	public void testaffecterEmployeADepartement() {
 //
 //		boolean affected = false;
@@ -189,17 +196,8 @@ public class EmployeServiceImplTest {
 //
 
 //	
+	
 
-//
-//	@Test
-//	public void testmettreAjourEmailByEmployeIdJPQL() {
-//
-//		boolean updated = false;
-//
-//		employeRepository.mettreAjourEmailByEmployeIdJPQL(email, employeId);
-//		updated = true;
-//		return updated;
-//	}
 //
 //	@Test
 //	public void testgetSalaireByEmployeIdJPQL() {
