@@ -22,13 +22,9 @@
 	</properties>
 
 
- <distributionManagement>
+
  
-    <repository>
-      <id> deploymentRepo </id>
-<url> http://localhost:8081/repository/maven-releases/ </url>
-    </repository>
-  </distributionManagement>
+
   
 	<dependencies>
 		<dependency>
@@ -59,6 +55,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+	  <groupId>tn.esprit</groupId>
+  <artifactId>avec_maven</artifactId>
+  <version>1.0</version>
+	</dependency>
+	
+	
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 	</dependencies>
 
 	<build>
