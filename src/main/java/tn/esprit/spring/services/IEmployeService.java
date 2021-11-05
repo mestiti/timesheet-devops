@@ -13,7 +13,7 @@ import tn.esprit.spring.entities.Entreprise;
 
 public interface IEmployeService {
 	
-	
+	////debut yasmine
 	public Employe mettreAjourEmailByEmployeId(String email, int employeId);//yas+
 
 	public boolean desaffecterEmployeDuDepartement(int employeId, int depId);//yas
@@ -30,7 +30,7 @@ public interface IEmployeService {
 	public Double getSalaireMoyenByDepartementId(int departementId);//+yas
 	
 	
-	
+	/////// fin yasmine
 	
 
 	
