@@ -128,8 +128,8 @@ public class EmployeServiceImplTest {
 	
 	@Test
 	public void testdeleteEmployeById() {
-		iemployeservice.deleteEmployeById(8);
-		Assert.assertNull(iemployeservice.getEmployeById("8"));
+		iemployeservice.deleteEmployeById(10);
+		Assert.assertNull(iemployeservice.getEmployeById("10"));
 	}
 
 	
@@ -155,7 +155,7 @@ public class EmployeServiceImplTest {
 	
 	@Test
 	public void testmettreAjourEmailByEmployeIdJPQL() {
-		boolean employeUpdatedMail = iemployeservice.mettreAjourEmailByEmployeIdJPQL("employe2@gmail.com", 2) ;
+		boolean employeUpdatedMail = iemployeservice.mettreAjourEmailByEmployeIdJPQL("employe2changed@gmail.com", 2) ;
 		Assert.assertEquals(true, employeUpdatedMail);
 	}
 	
