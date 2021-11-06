@@ -1,10 +1,9 @@
 #!/bin/bash
 set -x
+MYSQL_PASSWORD=123
 service mysql start
-SPRING_DB="springdb"
-MYSQL_PASSWORD=
-mysqladmin -u root password $MYSQL_PASSWORD 
-mysql -uroot -p$MYSQL_PASSWORD -e "CREATE DATABASE springdb; GRANT ALL PRIVILEGES ON springdb.* TO 'springdb@'localhost'; FLUSH PRIVILEGES;"
+mysql -uroot -p$MYSQL_PASSWORD -e "CREATE USER 'ons'@'localhost' IDENTIFIED BY '123';GRANT ALL PRIVILEGES ON *.* TO 'ons'@'localhost' WITH GRANT OPTION;"
+mysql -uroot -p$MYSQL_PASSWORD -e "CREATE USER 'ons'@'%' IDENTIFIED BY '123';GRANT ALL PRIVILEGES ON *.* TO 'ons'@'%' WITH GRANT OPTION;"
 mkdir /log
 sleep 5s 
 java  -jar Timesheet-DOCKER-IMAGE.war
