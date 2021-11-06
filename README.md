@@ -1,3 +1,3 @@
 # timesheet-devops
 
-continuous integration of the project timesheet(jenkinsmaven,sonar,log,junit,docker )    
+continuous integration of the project timesheet(jenkinsmaven,sonar,log,junit,docker)    
