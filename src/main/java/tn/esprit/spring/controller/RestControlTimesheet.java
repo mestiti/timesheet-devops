@@ -3,6 +3,7 @@ package tn.esprit.spring.controller;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,9 @@ import tn.esprit.spring.services.ITimesheetService;
 @RestController
 public class RestControlTimesheet {
 
+	private static final Logger firstlogger = Logger.getLogger("firstLogger"); 
+	private static final Logger secondlogger = Logger.getLogger("secondlogger");
+	
 	@Autowired
 	IEmployeService iemployeservice;
 	@Autowired
@@ -66,6 +70,9 @@ public class RestControlTimesheet {
     @ResponseBody
 	public List<Mission> findAllMissionByEmployeJPQL(@PathVariable("idemp") int employeId) {
 
+    	firstlogger.debug("this is the first logger in CONSOLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+		secondlogger.debug("this is the SECOND logger in FILLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLE");
+		
 		return itimesheetservice.findAllMissionByEmployeJPQL(employeId);
 	}
 

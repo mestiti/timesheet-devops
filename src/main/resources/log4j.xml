@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+<appender name="console" class="org.apache.log4j.ConsoleAppender">
+	<layout class="org.apache.log4j.PatternLayout">
+	<param name="ConversionPattern" value="%d{yyyyMM-dd HH:mm:ss} %l:%L - %m%n" />
+	</layout>
+</appender>
+
+<appender name="file" class="org.apache.log4j.RollingFileAppender">
+ <param name="append" value="true" />
+ <param name="maxFileSize" value="10MB" />
+ <param name="maxBackupIndex" value="10" />
+ <param name="file" value="C:/logs/5twin1.log"/>
+ <layout class="org.apache.log4j.PatternLayout">
+ 	<param name="ConversionPattern" value="%d{yyyyMM-dd HH:mm:ss} %l:%L - %m%n" />
+ </layout>
+</appender>
+
+<!-- Alors il ya deux methodes selon moi pour logguer Level ERROR fel console et Level DEBUG fel file:
+-soit pour chaque appender on ajoute un param name="Threshold" value=" (level minimum li n7ebou 3lih) "
+-soit on ajoute un deuxieme logger fel class java mte3na w na3tiwha logging messages li n7ebbou 3lihom et apres
+	n3aytou el kol logger declarineh fel java lel balise logger fel xml, w fi name n7ottou esmou -->
+
+<logger name="firstLogger">
+	<level value="DEBUG"></level>
+	<appender-ref ref="console"/>
+</logger>
+
+<logger name="secondlogger">
+	<level value="DEBUG"></level>
+	<appender-ref ref="file"/>
+</logger>
+
+<root>
+	<level value=""/>
+</root>
+
+</log4j:configuration>
