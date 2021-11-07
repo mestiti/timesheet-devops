@@ -6,4 +6,3 @@ ADD target/Timesheet-spring-boot-core-data-jpa-mvc-REST-1-0.0.1-SNAPSHOT.war Tim
 EXPOSE 8082
 COPY ./script.sh /
 RUN chmod +x /script.sh
-ENTRYPOINT ["/bin/bash", "script.sh"]

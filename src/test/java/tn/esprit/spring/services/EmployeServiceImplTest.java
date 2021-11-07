@@ -128,8 +128,8 @@ public class EmployeServiceImplTest {
 	
 	@Test
 	public void testdeleteEmployeById() {
-		iemployeservice.deleteEmployeById(24);
-		Assert.assertNull(iemployeservice.getEmployeById("24"));
+		iemployeservice.deleteEmployeById(25);
+		Assert.assertNull(iemployeservice.getEmployeById("25"));
 	}
 
 	
