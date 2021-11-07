@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Employe;
+import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.entities.Role;
 import tn.esprit.spring.entities.Timesheet;
@@ -38,8 +39,8 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	}
     
 	public void affecterMissionADepartement(int missionId, int depId) {
-		Mission mission = missionRepository.findById(missionId).get();
-		Departement dep = deptRepoistory.findById(depId).get();
+		Mission mission = missionRepository.findById(missionId).orElseGet(Mission::new);
+		Departement dep = deptRepoistory.findById(depId).orElseGet(Departement::new);
 		mission.setDepartement(dep);
 		missionRepository.save(mission);
 		
@@ -62,8 +63,8 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	
 	public void validerTimesheet(int missionId, int employeId, Date dateDebut, Date dateFin, int validateurId) {
 		System.out.println("In valider Timesheet");
-		Employe validateur = employeRepository.findById(validateurId).get();
-		Mission mission = missionRepository.findById(missionId).get();
+		Employe validateur = employeRepository.findById(validateurId).orElseGet(Employe::new);
+		Mission mission = missionRepository.findById(missionId).orElseGet(Mission::new);
 		//verifier s'il est un chef de departement (interet des enum)
 		if(!validateur.getRole().equals(Role.CHEF_DEPARTEMENT)){
 			System.out.println("l'employe doit etre chef de departement pour valider une feuille de temps !");

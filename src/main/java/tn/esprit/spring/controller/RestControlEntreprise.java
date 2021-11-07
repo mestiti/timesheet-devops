@@ -34,9 +34,9 @@ public class RestControlEntreprise {
 
 	@PostMapping("/ajouterEntreprise")
 	@ResponseBody
-	public int ajouterEntreprise(@RequestBody Entreprise Entreprise) {
-		ientrepriseservice.ajouterEntreprise(Entreprise);
-		return Entreprise.getId();
+	public int ajouterEntreprise(@RequestBody Entreprise entreprise) {
+		ientrepriseservice.ajouterEntreprise(entreprise);
+		return entreprise.getId();
 	}
 	
 	// http://localhost:8081/SpringMVC/servlet/affecterDepartementAEntreprise/1/1
@@ -66,8 +66,8 @@ public class RestControlEntreprise {
 
  	@PostMapping("/ajouterDepartement")
  	@ResponseBody
-	public int ajouterDepartement(@RequestBody Departement Departement) {
-		return ientrepriseservice.ajouterDepartement(Departement);
+	public int ajouterDepartement(@RequestBody Departement departement) {
+		return ientrepriseservice.ajouterDepartement(departement);
 	}
 	
  	 // http://localhost:8081/SpringMVC/servlet/getAllDepartementsNamesByEntreprise/1

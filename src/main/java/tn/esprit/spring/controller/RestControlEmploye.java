@@ -108,9 +108,9 @@ public class RestControlEmploye {
 
 	@PostMapping("/ajouterEmployer")
 	@ResponseBody
-	public Employe ajouterEmploye(@RequestBody Employe employe) {
-		iemployeservice.ajouterEmploye(employe);
-		return employe;
+	public Employe ajouterEmploye(@RequestBody Employe Employe) {
+		iemployeservice.ajouterEmploye(Employe);
+		return Employe;
 	}
 
 	// http://localhost:8081/SpringMVC/servlet/affecterEmployeADepartement/1/1
