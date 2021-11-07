@@ -21,21 +21,6 @@ public class EmployeServiceImplTest {
 	@Autowired
 	IEntrepriseService ientrepriseService;
 
-
-	@Test
-	public void testgetEmployeById() {
-		Employe employeRetrieved = iemployeservice.getEmployeById("2"); 
-		Assert.assertEquals(2, employeRetrieved.getId());
-	}
-	
-	@Test
-	public void testdeleteEmployeById() {
-		iemployeservice.deleteEmployeById(26);
-		Assert.assertNull(iemployeservice.getEmployeById("26"));
-	}
-
-	
-	
 	@Test
 	public void testajouterEmploye() {
 
@@ -47,18 +32,34 @@ public class EmployeServiceImplTest {
 	}
 	
 	@Test
-	public void testgetAllEmployes() {
-
-		List<Employe> listEmployes = iemployeservice.getAllEmployes(); 
-		// if there are 2 users in DB : expected value 1 khater chnamlou delete mta wehed deja
-		Assert.assertEquals(1, listEmployes.size());
+	public void testgetEmployeById() {
+		Employe employeRetrieved = iemployeservice.getEmployeById("2"); 
+		Assert.assertEquals(2, employeRetrieved.getId());
 	}
 	
 	@Test
 	public void testmettreAjourEmailByEmployeIdJPQL() {
-		boolean employeUpdatedMail = iemployeservice.mettreAjourEmailByEmployeIdJPQL("employe2changed@gmail.com", 2) ;
+		boolean employeUpdatedMail = iemployeservice.mettreAjourEmailByEmployeIdJPQL("newemaild@gmail.com", 2) ;
 		Assert.assertEquals(true, employeUpdatedMail);
 	}
+	
+//	@Test
+//	public void testdeleteEmployeById() {
+//		iemployeservice.deleteEmployeById(26);
+//		Assert.assertNull(iemployeservice.getEmployeById("26"));
+//	}
+//
+//	
+//	
+//	@Test
+//	public void testgetAllEmployes() {
+//
+//		List<Employe> listEmployes = iemployeservice.getAllEmployes(); 
+//		// if there are 2 users in DB : expected value 1 khater chnamlou delete mta wehed deja
+//		Assert.assertEquals(1, listEmployes.size());
+//	}
+	
+	
 	
 	
 }
