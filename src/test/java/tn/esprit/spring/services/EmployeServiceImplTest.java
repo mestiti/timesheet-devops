@@ -1,4 +1,4 @@
-package tn.esprit.spring.services;
+/*package tn.esprit.spring.services;
 
 import static org.junit.Assert.*;
 
@@ -119,7 +119,7 @@ public class EmployeServiceImplTest {
 //yasmine
 
 //ons++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-/*
+
 	@Test
 	public void testgetEmployeById() {
 		Employe employeRetrieved = iemployeservice.getEmployeById("2"); 
@@ -131,9 +131,7 @@ public class EmployeServiceImplTest {
 		iemployeservice.deleteEmployeById(10);
 		Assert.assertNull(iemployeservice.getEmployeById("10"));
 	}
-*/
-	
-	/*
+
 	@Test
 	public void testajouterEmploye() {
 
@@ -152,8 +150,7 @@ public class EmployeServiceImplTest {
 		Assert.assertEquals(1, listEmployes.size());
 		
 	}
-	*/
-	/*
+	
 	@Test
 	public void testmettreAjourEmailByEmployeIdJPQL() {
 		boolean employeUpdatedMail = iemployeservice.mettreAjourEmailByEmployeIdJPQL("employe2changed@gmail.com", 2) ;
@@ -161,7 +158,7 @@ public class EmployeServiceImplTest {
 	}
 	
 	//+++++++++++++++++++++++++++++++++++RestdeTest 
-	*/
+	
 	//@Test
 //	public void testaffecterEmployeADepartement() {
 //
@@ -216,3 +213,4 @@ public class EmployeServiceImplTest {
 
 	
 }
+*/
