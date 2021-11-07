@@ -118,7 +118,7 @@ public class EmployeServiceImplTest {
 //	}
 //yasmine
 
-//ons++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//ons++++++++++++++++
 
 	@Test
 	public void testgetEmployeById() {
@@ -128,8 +128,8 @@ public class EmployeServiceImplTest {
 	
 	@Test
 	public void testdeleteEmployeById() {
-		iemployeservice.deleteEmployeById(10);
-		Assert.assertNull(iemployeservice.getEmployeById("10"));
+		iemployeservice.deleteEmployeById(26);
+		Assert.assertNull(iemployeservice.getEmployeById("26"));
 	}
 
 	
