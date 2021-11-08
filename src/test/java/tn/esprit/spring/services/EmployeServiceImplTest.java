@@ -32,6 +32,15 @@ public class EmployeServiceImplTest {
 		Entreprise entrepriseRetrieved = ientrepriseService.getEntrepriseById(1); 
 		Assert.assertEquals(1, entrepriseRetrieved.getId());
 	}
+	@Test
+	public void testajouterEntreprise() {
+
+		Entreprise e = new Entreprise ("SSII Consulting","Cite El Ghazela"); 
+	
+		int entrepriseAdded = ientrepriseService.ajouterEntreprise(e); 
+		Assert.assertEquals(e.getId(), entrepriseAdded);
+		
+	}
 
 //	@Test
 //	public void testmettreAjourEmailByEmployeId() {
