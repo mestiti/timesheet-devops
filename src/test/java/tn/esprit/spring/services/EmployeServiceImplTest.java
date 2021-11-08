@@ -2,10 +2,8 @@ package tn.esprit.spring.services;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,10 +11,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import tn.esprit.spring.entities.*;
-import tn.esprit.spring.services.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
