@@ -104,30 +104,30 @@ public class RestControlEmploye {
 		return iemployeservice.getSalaireMoyenByDepartementId(departementId);
 	}
 
-	//// onnnssss+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//// ons restcontroller
 
-	@PostMapping("/ajouterEmployer")
+	@PostMapping("/ajouterEmploye")
 	@ResponseBody
 	public Employe ajouterEmploye(@RequestBody Employe employe) {
 		iemployeservice.ajouterEmploye(employe);
 		return employe;
 	}
 
-	// http://localhost:8081/SpringMVC/servlet/affecterEmployeADepartement/1/1
+	// http://localhost:8082/SpringMVC/servlet/affecterEmployeADepartement/1/1
 	@PutMapping(value = "/affecterEmployeADepartement/{idemp}/{iddept}")
 	public void affecterEmployeADepartement(@PathVariable("idemp") int employeId, @PathVariable("iddept") int depId) {
 		iemployeservice.affecterEmployeADepartement(employeId, depId);
 
 	}
 
-	// URL : http://localhost:8081/SpringMVC/servlet/getEmployePrenomById/2
+	// URL : http://localhost:8082/SpringMVC/servlet/getEmployePrenomById/2
 	@GetMapping(value = "getEmployePrenomById/{idemp}")
 	@ResponseBody
 	public String getEmployePrenomById(@PathVariable("idemp") int employeId) {
 		return iemployeservice.getEmployePrenomById(employeId);
 	}
 
-	// URL : http://localhost:8081/SpringMVC/servlet/deleteEmployeById/1
+	// URL : http://localhost:8082/SpringMVC/servlet/deleteEmployeById/1
 	@DeleteMapping("/deleteEmployeById/{idemp}")
 	@ResponseBody
 	public void deleteEmployeById(@PathVariable("idemp") int employeId) {
@@ -135,7 +135,7 @@ public class RestControlEmploye {
 
 	}
 
-	// URL : http://localhost:8081/SpringMVC/servlet/getAllEmployeNamesJPQL
+	// URL : http://localhost:8082/SpringMVC/servlet/getAllEmployeNamesJPQL
 	@GetMapping(value = "getAllEmployeNamesJPQL")
 	@ResponseBody
 	public List<String> getAllEmployeNamesJPQL() {
@@ -144,7 +144,7 @@ public class RestControlEmploye {
 	}
 
 	// Modifier email :
-	// http://localhost:8081/SpringMVC/servlet/mettreAjourEmailByEmployeIdJPQL/2/newemail
+	// http://localhost:8082/SpringMVC/servlet/mettreAjourEmailByEmployeIdJPQL/2/newemail
 	@PutMapping(value = "/mettreAjourEmailByEmployeIdJPQL/{id}/{newemail}")
 	@ResponseBody
 	public void mettreAjourEmailByEmployeIdJPQL(@PathVariable("newemail") String email,
@@ -153,7 +153,7 @@ public class RestControlEmploye {
 
 	}
 
-	// URL : http://localhost:8081/SpringMVC/servlet/getSalaireByEmployeIdJPQL/2
+	// URL : http://localhost:8082/SpringMVC/servlet/getSalaireByEmployeIdJPQL/2
 	@GetMapping(value = "getSalaireByEmployeIdJPQL/{idemp}")
 	@ResponseBody
 	public float getSalaireByEmployeIdJPQL(@PathVariable("idemp") int employeId) {
@@ -165,7 +165,7 @@ public class RestControlEmploye {
 		return iemployeservice.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
 	}
 
-	// URL : http://localhost:8081/SpringMVC/servlet/getAllEmployes
+	// URL : http://localhost:8082/SpringMVC/servlet/getAllEmployes
 	@GetMapping(value = "/getAllEmployes")
 	@ResponseBody
 	public List<Employe> getAllEmployes() {
