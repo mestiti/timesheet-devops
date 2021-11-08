@@ -41,6 +41,34 @@ public class EmployeServiceImplTest {
 		Assert.assertEquals(e.getId(), entrepriseAdded);
 		
 	}
+	//@Test
+	//public void testdeleteEntrepriseById() {
+	//	ientrepriseService.deleteEntrepriseById(13);
+	//	Assert.assertNull(13);
+	//}
+	
+	@Test
+	public void testajouterDepartement() {
+
+		Departement d = new Departement ("tt"); 
+	
+		int departementAdded = ientrepriseService.ajouterDepartement(d); 
+		Assert.assertEquals(d.getId(), departementAdded);
+		
+	}
+	
+	@Test
+	public void testgetAllDepartementsNamesByEntreprise() {
+		
+		try {
+			List<String> dlist;
+			dlist = ientrepriseService.getAllDepartementsNamesByEntreprise(1);
+			equals("Telecom");
+		} catch (Exception e1) {
+			assertNull(e1);
+		}
+	}
+	
 
 //	@Test
 //	public void testmettreAjourEmailByEmployeId() {
