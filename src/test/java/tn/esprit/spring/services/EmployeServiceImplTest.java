@@ -48,8 +48,6 @@ public class EmployeServiceImplTest {
 //		iemployeservice.deleteEmployeById(26);
 //		Assert.assertNull(iemployeservice.getEmployeById("26"));
 //	}
-//
-//	
 //	
 //	@Test
 //	public void testgetAllEmployes() {
@@ -57,9 +55,5 @@ public class EmployeServiceImplTest {
 //		List<Employe> listEmployes = iemployeservice.getAllEmployes(); 
 //		// if there are 2 users in DB : expected value 1 khater chnamlou delete mta wehed deja
 //		Assert.assertEquals(1, listEmployes.size());
-//	}
-	
-	
-	
-	
+//	}	
 }
