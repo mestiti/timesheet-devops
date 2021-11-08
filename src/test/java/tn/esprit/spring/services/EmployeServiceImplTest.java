@@ -39,7 +39,7 @@ public class EmployeServiceImplTest {
 	
 	@Test
 	public void testmettreAjourEmailByEmployeIdJPQL() {
-		boolean employeUpdatedMail = iemployeservice.mettreAjourEmailByEmployeIdJPQL("newemaild@gmail.com", 2) ;
+		boolean employeUpdatedMail = iemployeservice.mettreAjourEmailByEmployeIdJPQL("emailupdated@gmail.com", 2) ;
 		Assert.assertEquals(true, employeUpdatedMail);
 	}
 	
