@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 MYSQL_PASSWORD=123
 service mysql start
 mysql -uroot -p$MYSQL_PASSWORD -e "CREATE USER 'ons'@'localhost' IDENTIFIED BY '123';GRANT ALL PRIVILEGES ON *.* TO 'ons'@'localhost' WITH GRANT OPTION;"
