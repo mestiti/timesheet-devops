@@ -25,7 +25,7 @@ public class EmployeServiceImplTest {
 	@Autowired
 	IEntrepriseService ientrepriseService;
 	
-/*	@Test
+	@Test
 	public void testmettreAjourEmailByEmployeId()
 	{
 		  try {
@@ -36,7 +36,7 @@ public class EmployeServiceImplTest {
 		    }
 		
 	}
-*/
+
 	@Test
 	public void testajouterContrat()
 	{
@@ -50,7 +50,7 @@ public class EmployeServiceImplTest {
 	    }
 		}
 
-	/*@Test
+	@Test
 	public void testaffecterContratAEmploye()
 	{
 		
@@ -123,7 +123,7 @@ public void testdeleteAllContratJPQL()
 
 
 }
-/*
+
 @Test
 public void testgetSalaireMoyenByDepartementId()
 {
@@ -135,9 +135,9 @@ public void testgetSalaireMoyenByDepartementId()
 	        assertNull(e);
 	    }
 	
-}*/
+}
 	
-	/*@Test
+	@Test
 	public void testdesaffecterEmployeDuDepartement()
 	{
 		try {
@@ -147,5 +147,5 @@ public void testgetSalaireMoyenByDepartementId()
 		        assertNull(e);
 		    }
 		
-	}*/
+	}
 }
