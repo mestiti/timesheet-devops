@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,120 +26,162 @@ public class EmployeServiceImplTest {
 
 	@Autowired
 	IEntrepriseService ientrepriseService;
-
+	
 	@Test
-	public void testmettreAjourEmailByEmployeId() {
-		try {
-			Employe e = iemployeservice.mettreAjourEmailByEmployeId("tttttttttt@es.tn", 1);
-			assertEquals(e.getEmail(), "tttttttttt@es.tn");
-		} catch (Exception e) {
-			assertNull(e);
-		}
-
+	public void testgetEntrepriseById() {
+		Entreprise entrepriseRetrieved = ientrepriseService.getEntrepriseById(1); 
+		Assert.assertEquals(1, entrepriseRetrieved.getId());
 	}
-
 	@Test
-	public void testajouterContrat() {
-		Contrat c = new Contrat(new Date(), "CDI", 55);
-		try {
-			int id = iemployeservice.ajouterContrat(c);
-			// System.out.println("id du nv employe "+id);
-			assertEquals(c.getTypeContrat(), "CDI");
-		} catch (Exception e) {
-			assertNull(e);
-		}
+	public void testajouterEntreprise() {
+
+		Entreprise e = new Entreprise ("SSII Consulting","Cite El Ghazela"); 
+	
+		int entrepriseAdded = ientrepriseService.ajouterEntreprise(e); 
+		Assert.assertEquals(e.getId(), entrepriseAdded);
+		
 	}
-
+	//@Test
+	//public void testdeleteEntrepriseById() {
+	//	ientrepriseService.deleteEntrepriseById(13);
+	//	Assert.assertNull(13);
+	//}
+	
 	@Test
-	public void testaffecterContratAEmploye() {
+	public void testajouterDepartement() {
 
-		try {
-			boolean b = iemployeservice.affecterContratAEmploye(22, 4);
-			System.out.println("affectation est  " + b);
-			assertEquals(b, true);
-		} catch (Exception e) {
-			assertNull(e);
-		}
+		Departement d = new Departement ("tt"); 
+	
+		int departementAdded = ientrepriseService.ajouterDepartement(d); 
+		Assert.assertEquals(d.getId(), departementAdded);
+		
 	}
-
+	
 	@Test
-	public void testdeleteContratById() {
-
+	public void testgetAllDepartementsNamesByEntreprise() {
+		
 		try {
-			boolean b = iemployeservice.deleteContratById(13);
-
-			System.out.println("etat est  " + b);
-			assertEquals(b, false);
-		} catch (Exception e) {
-			assertNull(e);
-		}
-
-	}
-
-	@Test
-	public void testgetNombreEmployeJPQL() {
-
-		try {
-			int nb = iemployeservice.getNombreEmployeJPQL();
-
-			System.out.println("le nb d'emplyes  " + nb);
-			assertEquals(nb, 5);
-		} catch (Exception e) {
-			assertNull(e);
+			List<String> dlist;
+			dlist = ientrepriseService.getAllDepartementsNamesByEntreprise(1);
+			equals("Telecom");
+		} catch (Exception e1) {
+			assertNull(e1);
 		}
 	}
+	
 
-	@Test
-	public void testgetAllEmployeByEntreprise() {
-		Entreprise em = new Entreprise("it", "test");
-
-		try {
-			ientrepriseService.ajouterEntreprise(em);
-			List<Employe> elist;
-			elist = iemployeservice.getAllEmployeByEntreprise(em);
-			System.out.println("la liste des employes  " + elist);
-			assertEquals(elist, 7);
-		} catch (Exception e) {
-			assertNull(e);
-		}
-
-	}
-
-	@Test
-	public void testdeleteAllContratJPQL() {
-		try {
-			boolean b = iemployeservice.deleteAllContratJPQL();
-			System.out.println("etat est  " + b);
-			assertEquals(b, true);
-		} catch (Exception e) {
-			assertNull(e);
-		}
-
-	}
+//	@Test
+//	public void testmettreAjourEmailByEmployeId() {
+//		try {
+//			Employe e = iemployeservice.mettreAjourEmailByEmployeId("tttttttttt@es.tn", 1);
+//			assertEquals(e.getEmail(), "tttttttttt@es.tn");
+//		} catch (Exception e) {
+//			assertNull(e);
+//		}
+//
+//	}
+//
+//	@Test
+//	public void testajouterContrat() {
+//		Contrat c = new Contrat(new Date(), "CDI", 55);
+//		try {
+//			int id = iemployeservice.ajouterContrat(c);
+//			// System.out.println("id du nv employe "+id);
+//			assertEquals(c.getTypeContrat(), "CDI");
+//		} catch (Exception e) {
+//			assertNull(e);
+//		}
+//	}
+//
+//	@Test
+//	public void testaffecterContratAEmploye() {
+//
+//		try {
+//			boolean b = iemployeservice.affecterContratAEmploye(22, 4);
+//			System.out.println("affectation est  " + b);
+//			assertEquals(b, true);
+//		} catch (Exception e) {
+//			assertNull(e);
+//		}
+//	}
+//
+//	@Test
+//	public void testdeleteContratById() {
+//
+//		try {
+//			boolean b = iemployeservice.deleteContratById(13);
+//
+//			System.out.println("etat est  " + b);
+//			assertEquals(b, false);
+//		} catch (Exception e) {
+//			assertNull(e);
+//		}
+//
+//	}
+//
+//	@Test
+//	public void testgetNombreEmployeJPQL() {
+//
+//		try {
+//			int nb = iemployeservice.getNombreEmployeJPQL();
+//
+//			System.out.println("le nb d'emplyes  " + nb);
+//			assertEquals(nb, 5);
+//		} catch (Exception e) {
+//			assertNull(e);
+//		}
+//	}
+//
+//	@Test
+//	public void testgetAllEmployeByEntreprise() {
+//		Entreprise em = new Entreprise("it", "test");
+//
+//		try {
+//			ientrepriseService.ajouterEntreprise(em);
+//			List<Employe> elist;
+//			elist = iemployeservice.getAllEmployeByEntreprise(em);
+//			System.out.println("la liste des employes  " + elist);
+//			assertEquals(elist, 7);
+//		} catch (Exception e) {
+//			assertNull(e);
+//		}
+//
+//	}
+//
+//	@Test
+//	public void testdeleteAllContratJPQL() {
+//		try {
+//			boolean b = iemployeservice.deleteAllContratJPQL();
+//			System.out.println("etat est  " + b);
+//			assertEquals(b, true);
+//		} catch (Exception e) {
+//			assertNull(e);
+//		}
+//
+//	}
 //yasmine
 
 //ons++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+/*
 	@Test
 	public void testgetEmployeById() {
-		Employe employeRetrieved = iemployeservice.getEmployeById("1"); 
-		Assert.assertEquals(1L, employeRetrieved.getId());
+		Employe employeRetrieved = iemployeservice.getEmployeById("2"); 
+		Assert.assertEquals(2, employeRetrieved.getId());
 	}
 	
 	@Test
 	public void testdeleteEmployeById() {
-		iemployeservice.deleteEmployeById(8);
-		Assert.assertNull(iemployeservice.getEmployeById("8"));
+		iemployeservice.deleteEmployeById(10);
+		Assert.assertNull(iemployeservice.getEmployeById("10"));
 	}
 
-	
-	
 	@Test
 	public void testajouterEmploye() {
 
-		Employe e = new Employe ("ooons", "Ons","ons@esprit.tn","0000", true, "INGENIEUR"); 
-		Employe employeAdded = iemployeservice.ajouterEmploye(e); 
-		Assert.assertEquals(e.getId(), employeAdded.getId());
+		Employe e = new Employe ("ooons", "Ons","ons@esprit.tn", true, Role.INGENIEUR); 
+	
+		int employeAdded = iemployeservice.ajouterEmploye(e); 
+		Assert.assertEquals(e.getId(), employeAdded);
 		
 	}
 	
@@ -146,13 +189,20 @@ public class EmployeServiceImplTest {
 	public void testgetAllEmployes() {
 
 		List<Employe> listEmployes = iemployeservice.getAllEmployes(); 
-		// if there are 7 users in DB : 
-		Assert.assertEquals(9, listEmployes.size());
+		// if there are 2 users in DB : expected value 1 khater chnamlou delete mta wehed deja
+		Assert.assertEquals(1, listEmployes.size());
 		
 	}
 	
+	@Test
+	public void testmettreAjourEmailByEmployeIdJPQL() {
+		boolean employeUpdatedMail = iemployeservice.mettreAjourEmailByEmployeIdJPQL("employe2changed@gmail.com", 2) ;
+		Assert.assertEquals(true, employeUpdatedMail);
+	}
+	
 	//+++++++++++++++++++++++++++++++++++RestdeTest 
-//	@Test
+	*/
+	//@Test
 //	public void testaffecterEmployeADepartement() {
 //
 //		boolean affected = false;
@@ -187,17 +237,8 @@ public class EmployeServiceImplTest {
 //
 
 //	
+	
 
-//
-//	@Test
-//	public void testmettreAjourEmailByEmployeIdJPQL() {
-//
-//		boolean updated = false;
-//
-//		employeRepository.mettreAjourEmailByEmployeIdJPQL(email, employeId);
-//		updated = true;
-//		return updated;
-//	}
 //
 //	@Test
 //	public void testgetSalaireByEmployeIdJPQL() {
@@ -212,6 +253,7 @@ public class EmployeServiceImplTest {
 //		return timesheetRepository.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
 //	}
 //
+
 
 	
 }
