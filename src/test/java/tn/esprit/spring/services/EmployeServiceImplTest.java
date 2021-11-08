@@ -1,4 +1,4 @@
-/*package tn.esprit.spring.services;
+package tn.esprit.spring.services;
 
 import static org.junit.Assert.*;
 
@@ -26,6 +26,12 @@ public class EmployeServiceImplTest {
 
 	@Autowired
 	IEntrepriseService ientrepriseService;
+	
+	@Test
+	public void testgetEntrepriseById() {
+		Entreprise entrepriseRetrieved = ientrepriseService.getEntrepriseById(1); 
+		Assert.assertEquals(1, entrepriseRetrieved.getId());
+	}
 
 //	@Test
 //	public void testmettreAjourEmailByEmployeId() {
@@ -119,7 +125,7 @@ public class EmployeServiceImplTest {
 //yasmine
 
 //ons++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+/*
 	@Test
 	public void testgetEmployeById() {
 		Employe employeRetrieved = iemployeservice.getEmployeById("2"); 
@@ -158,7 +164,7 @@ public class EmployeServiceImplTest {
 	}
 	
 	//+++++++++++++++++++++++++++++++++++RestdeTest 
-	
+	*/
 	//@Test
 //	public void testaffecterEmployeADepartement() {
 //
@@ -213,4 +219,4 @@ public class EmployeServiceImplTest {
 
 	
 }
-*/
+
