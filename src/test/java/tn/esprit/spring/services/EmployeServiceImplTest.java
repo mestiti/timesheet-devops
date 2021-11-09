@@ -25,10 +25,8 @@ public class EmployeServiceImplTest {
 	public void testajouterEmploye() {
 
 		Employe e = new Employe ("ooons", "Ons","ons@esprit.tn", true, Role.INGENIEUR); 
-	
 		int employeAdded = iemployeservice.ajouterEmploye(e); 
 		Assert.assertEquals(e.getId(), employeAdded);
-		
 	}
 	
 	@Test
@@ -45,8 +43,8 @@ public class EmployeServiceImplTest {
 	
 	@Test
 	public void testdeleteEmployeById() {
-		iemployeservice.deleteEmployeById(44);
-		Assert.assertNull(iemployeservice.getEmployeById("44"));
+		iemployeservice.deleteEmployeById(46);
+		Assert.assertNull(iemployeservice.getEmployeById("46"));
 	}
 	
 	@Test

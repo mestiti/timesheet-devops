@@ -205,7 +205,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		LOGGER.info("**************In affecterEmployeADepartement**********");
 
 		boolean affected = false;
-		LOGGER.debug("affected value:" + affected);
+		LOGGER.debug("affected value:", affected);
 		Optional<Departement> depF = deptRepoistory.findById(depId);
 		Optional<Employe> empF = employeRepository.findById(employeId);
 		if (depF.isPresent() && empF.isPresent()) {
@@ -225,11 +225,11 @@ public class EmployeServiceImpl implements IEmployeService {
 			}
 
 			affected = true;
-			LOGGER.debug("affected value:"+ affected);
+			LOGGER.debug("affected value:", affected);
 
 		}
 
-		LOGGER.debug("affected value at the end:" + affected);
+		LOGGER.debug("affected value at the end:", affected);
 
 		return affected;
 
@@ -242,22 +242,23 @@ public class EmployeServiceImpl implements IEmployeService {
 
 		if (empF.isPresent()) {
 			Employe employeManagedEntity = empF.get();
+			LOGGER.info("prenom user:" + employeManagedEntity.getPrenom());
 			return employeManagedEntity.getPrenom();
 		}
-
+		LOGGER.info("aucun user a cet id" + employeId);
 		return "there is no user prenom matches with your input";
 	}
 
 	public boolean deleteEmployeById(int employeId) {
 		boolean deleted = false;
-		LOGGER.debug("deleted value:", deleted);
+		LOGGER.debug("deleted value:" + deleted);
 
 		LOGGER.info("**************In delete Employe By Id**********");
 
 		Optional<Employe> empF = employeRepository.findById(employeId);
 		if (empF.isPresent()) {
 			Employe employe = empF.get();
-			LOGGER.info("message le nb de d employes {}", employeRepository.count());
+			LOGGER.info("message le nb de d employes", employeRepository.count());
 
 			for (Departement dep : employe.getDepartements()) {
 				dep.getEmployes().remove(employe);
@@ -266,10 +267,11 @@ public class EmployeServiceImpl implements IEmployeService {
 			employeRepository.delete(employe);
 			LOGGER.info("message le nb de d employes apres suppression{}", employeRepository.count());
 			deleted = true;
-			LOGGER.debug("deleted value after deleting:", deleted);
+			LOGGER.debug("deleted value after deleting:" + deleted);
 
 		}
-		LOGGER.debug("deleted value at the end:", deleted);
+		LOGGER.info("message le nb de d employes final", employeRepository.count());
+		LOGGER.debug("deleted value at the end:" + deleted);
 
 		return deleted;
 	}
