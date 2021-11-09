@@ -196,7 +196,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	public int ajouterEmploye(Employe employe) {
 		LOGGER.info("**************In ajouterEmploye**********");
 		employeRepository.save(employe);
-		LOGGER.info("l'id de lutilisateur ajouté :" +employe.getId());
+		LOGGER.info("l'id de lutilisateur ajouté :", employe.getId());
 		return employe.getId();
 	}
 
@@ -242,10 +242,10 @@ public class EmployeServiceImpl implements IEmployeService {
 
 		if (empF.isPresent()) {
 			Employe employeManagedEntity = empF.get();
-			LOGGER.info("prenom user:" + employeManagedEntity.getPrenom());
+			LOGGER.info("prenom user:", employeManagedEntity.getPrenom());
 			return employeManagedEntity.getPrenom();
 		}
-		LOGGER.info("aucun user a cet id" + employeId);
+		LOGGER.info("aucun user a cet id", employeId);
 		return "there is no user prenom matches with your input";
 	}
 
@@ -267,11 +267,11 @@ public class EmployeServiceImpl implements IEmployeService {
 			employeRepository.delete(employe);
 			LOGGER.info("message le nb de d employes apres suppression{}", employeRepository.count());
 			deleted = true;
-			LOGGER.debug("deleted value after deleting:" + deleted);
+			LOGGER.debug("deleted value after deleting:", deleted);
 
 		}
 		LOGGER.info("message le nb de d employes final", employeRepository.count());
-		LOGGER.debug("deleted value at the end:" + deleted);
+		LOGGER.debug("deleted value at the end:", deleted);
 
 		return deleted;
 	}
