@@ -1,4 +1,4 @@
-/*package tn.esprit.spring.services;
+package tn.esprit.spring.services;
 
 import static org.junit.Assert.*;
 
@@ -27,6 +27,44 @@ public class EmployeServiceImplTest {
 	@Autowired
 	IEntrepriseService ientrepriseService;
 
+	
+	@Test
+	public void testajouterEntreprise() {
+
+		Entreprise e = new Entreprise ("SSII Consulting","Cite El Ghazela"); 
+	
+		int entrepriseAdded = ientrepriseService.ajouterEntreprise(e); 
+		Assert.assertEquals(e.getId(), entrepriseAdded);
+		
+	}
+	
+	@Test
+	public void testgetEntrepriseById() {
+		Entreprise entrepriseRetrieved = ientrepriseService.getEntrepriseById(1); 
+		Assert.assertEquals(1, entrepriseRetrieved.getId());
+	}
+	@Test
+	public void testajouterDepartement() {
+
+		Departement d = new Departement ("tt"); 
+	
+		int departementAdded = ientrepriseService.ajouterDepartement(d); 
+		Assert.assertEquals(d.getId(), departementAdded);
+		
+	}
+	
+	@Test
+	public void testgetAllDepartementsNamesByEntreprise() {
+		
+		try {
+			List<String> dlist;
+			dlist = ientrepriseService.getAllDepartementsNamesByEntreprise(1);
+			equals("Telecom");
+		} catch (Exception e1) {
+			assertNull(e1);
+		}
+	}
+	
 //	@Test
 //	public void testmettreAjourEmailByEmployeId() {
 //		try {
@@ -120,7 +158,7 @@ public class EmployeServiceImplTest {
 
 //ons++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	@Test
+	/*@Test
 	public void testgetEmployeById() {
 		Employe employeRetrieved = iemployeservice.getEmployeById("2"); 
 		Assert.assertEquals(2, employeRetrieved.getId());
@@ -155,7 +193,7 @@ public class EmployeServiceImplTest {
 	public void testmettreAjourEmailByEmployeIdJPQL() {
 		boolean employeUpdatedMail = iemployeservice.mettreAjourEmailByEmployeIdJPQL("employe2changed@gmail.com", 2) ;
 		Assert.assertEquals(true, employeUpdatedMail);
-	}
+	}*/
 	
 	//+++++++++++++++++++++++++++++++++++RestdeTest 
 	
@@ -213,4 +251,4 @@ public class EmployeServiceImplTest {
 
 	
 }
-*/
+
