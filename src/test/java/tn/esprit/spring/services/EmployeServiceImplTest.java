@@ -53,7 +53,7 @@ public class EmployeServiceImplTest {
 	public void testgetAllEmployes() {
 
 		List<Employe> listEmployes = iemployeservice.getAllEmployes(); 
-		// if there are 2 users in DB : expected value 1 khater chnamlou delete mta wehed deja
+		// if there are 2 users in DB : expected value 1
 		Assert.assertEquals(1, listEmployes.size());
 	}	
 }
