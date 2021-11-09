@@ -196,6 +196,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	public int ajouterEmploye(Employe employe) {
 		LOGGER.info("**************In ajouterEmploye**********");
 		employeRepository.save(employe);
+		LOGGER.info("l'id de lutilisateur ajouté :" +employe.getId());
 		return employe.getId();
 	}
 
@@ -204,15 +205,12 @@ public class EmployeServiceImpl implements IEmployeService {
 		LOGGER.info("**************In affecterEmployeADepartement**********");
 
 		boolean affected = false;
-		LOGGER.debug("+1+1+1+1+1+1+affected value:", affected);
+		LOGGER.debug("affected value:" + affected);
 		Optional<Departement> depF = deptRepoistory.findById(depId);
 		Optional<Employe> empF = employeRepository.findById(employeId);
 		if (depF.isPresent() && empF.isPresent()) {
 			Departement depManagedEntity = depF.get();
-
 			Employe employeManagedEntity = empF.get();
-
-
 			if (depManagedEntity.getEmployes() == null) {
 
 				List<Employe> employes = new ArrayList<>();
@@ -227,11 +225,11 @@ public class EmployeServiceImpl implements IEmployeService {
 			}
 
 			affected = true;
-			LOGGER.debug("+2+2+222+2+2+2+2+2+affected value:", affected);
+			LOGGER.debug("affected value:"+ affected);
 
 		}
 
-		LOGGER.debug("+3+33+3+3+33+3+affected value at the end:", affected);
+		LOGGER.debug("affected value at the end:" + affected);
 
 		return affected;
 

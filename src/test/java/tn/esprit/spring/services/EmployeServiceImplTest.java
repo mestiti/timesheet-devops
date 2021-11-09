@@ -43,17 +43,17 @@ public class EmployeServiceImplTest {
 		Assert.assertEquals(true, employeUpdatedMail);
 	}
 	
-//	@Test
-//	public void testdeleteEmployeById() {
-//		iemployeservice.deleteEmployeById(26);
-//		Assert.assertNull(iemployeservice.getEmployeById("26"));
-//	}
-//	
-//	@Test
-//	public void testgetAllEmployes() {
-//
-//		List<Employe> listEmployes = iemployeservice.getAllEmployes(); 
-//		// if there are 2 users in DB : expected value 1 khater chnamlou delete mta wehed deja
-//		Assert.assertEquals(1, listEmployes.size());
-//	}	
+	@Test
+	public void testdeleteEmployeById() {
+		iemployeservice.deleteEmployeById(44);
+		Assert.assertNull(iemployeservice.getEmployeById("44"));
+	}
+	
+	@Test
+	public void testgetAllEmployes() {
+
+		List<Employe> listEmployes = iemployeservice.getAllEmployes(); 
+		// if there are 2 users in DB : expected value 1 khater chnamlou delete mta wehed deja
+		Assert.assertEquals(1, listEmployes.size());
+	}	
 }
