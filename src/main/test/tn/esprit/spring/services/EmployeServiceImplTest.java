@@ -25,7 +25,7 @@ public class EmployeServiceImplTest {
 	@Autowired
 	IEntrepriseService ientrepriseService;
 	
-	/*@Test
+	@Test
 	public void testmettreAjourEmailByEmployeId()
 	{
 		  try {
@@ -36,7 +36,7 @@ public class EmployeServiceImplTest {
 		    }
 		
 	}
-*/
+
 	@Test
 	public void testajouterContrat()
 	{
@@ -49,7 +49,7 @@ public class EmployeServiceImplTest {
 	        assertNull(e);
 	    }
 		}
-/*
+
 	@Test
 	public void testaffecterContratAEmploye()
 	{
@@ -146,6 +146,6 @@ public void testgetSalaireMoyenByDepartementId()
 		    } catch (Exception e){
 		        assertNull(e);
 		    }
-		
-	}*/
+	
+	}
 }
