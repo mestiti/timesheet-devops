@@ -251,7 +251,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public boolean deleteEmployeById(int employeId) {
 		boolean deleted = false;
-		LOGGER.debug("deleted value:" + deleted);
+		LOGGER.debug("deleted value:", deleted);
 
 		LOGGER.info("**************In delete Employe By Id**********");
 
